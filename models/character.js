@@ -23,6 +23,7 @@ const characterSchema = new Schema({
     required: true
   },
   quotes: [quoteSchema],
+  added_by: { type: mongoose.Schema.Types.ObjectId, ref: 'Profile' },
 })
 
 const Character = mongoose.model("Character", characterSchema)
