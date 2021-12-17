@@ -9,7 +9,7 @@ import * as authService from './services/authService'
 
 
 //Components 
-import Character from './components/Character'
+import Character from './components/Characters/Character'
 
 const App = () => {
   const [characterData, setCharacterData] = useState('');
@@ -49,6 +49,7 @@ const App = () => {
     <Routes>
       <Route path="/" element={<Landing user={user} />} />
       <Route
+      
         path="/signup"
         element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
       />
