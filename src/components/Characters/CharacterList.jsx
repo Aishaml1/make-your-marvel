@@ -1,30 +1,31 @@
 import React, { useState, useEffect } from 'react'
 import Form from './CharacterForm'
 import { getCharacter } from '../../services/characterService'
+import CharacterCard from './CharacterCard'
 
 function CharacterList() {
-  const [char, setChar] = useState([])
+  const [chars, setChars] = useState([])
   
   useEffect(() => {
     const fetchAllChar = async () => {
       const charData = await getCharacter()
-      setChar(charData)
-      console.log("api data", charData)
+      setChars(charData.data.results)
+      console.log("api data", charData.data.results)
     }
     fetchAllChar()
-    return () => { setChar([]) }
+    return () => { setChars([]) }
   }, [])
-  
+   console.log(chars)
   return (
     <>
       <h1> Search Character Page </h1>
-      <Form char={char}/>
-      <div>
-        {/* <div>Name: {charData} </div> */}
-        {/* <img src={`${character.data.results[0].thumbnail.path}.${character.data.results[0].thumbnail.extension}`} alt="" />
-        <div> Description: {character.data.results[0].description}</div>
-        <div>Comic Name: {character.data.results[0].comics.items.slice(0).name}</div> */}
-      </div>
+      <Form chars={chars}/>
+      {chars.map((character) =>(
+        <CharacterCard 
+          character={character}
+          key={character.id}
+        />
+      ))}
     </>
   )
 }

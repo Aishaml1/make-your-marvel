@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import CharacterCard from './CharacterCard'
 
 function Form(props) {
   console.log("props data in form", props)
@@ -31,6 +31,7 @@ function Form(props) {
         <button onClick={refreshPage}> Make API call again
         </button>
       </form>
+  
     </>
   );
 }
