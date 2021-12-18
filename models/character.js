@@ -12,15 +12,12 @@ const quoteSchema = new Schema({
 const characterSchema = new Schema({
   name: {
     type: String,
-    required: true
   },
-  thumbnail: {
+  path: {
     type: String,
-    required: true
   },
   description: {
     type: String,
-    required: true
   },
   quotes: [quoteSchema],
   added_by: { type: mongoose.Schema.Types.ObjectId, ref: 'Profile' },
