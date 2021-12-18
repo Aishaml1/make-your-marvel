@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 
 function Form(props) {
+  console.log("props data in form", props)
   const [characterTitle, setCharacterTitle] = useState('')
 
   const handleSubmit = e => {

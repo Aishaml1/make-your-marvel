@@ -11,7 +11,7 @@ const router = Router()
 router.use(decodeUserFromToken)
 
 //localhost:3001/api/characters -GET
-router.get('/', checkAuth, charactersCtrl.search)
+router.get('/', charactersCtrl.search)
 
 //localhost:3001/api/characters - POST 
 router.post('/', checkAuth, charactersCtrl.addToTeam)
