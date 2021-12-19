@@ -2,7 +2,7 @@ import React from 'react'
 
 
 const CharacterCard = ({ character }) => {
-  console.log(character)
+  // console.log(character)
   return (
     <div>
       <h1>{character.name}</h1>

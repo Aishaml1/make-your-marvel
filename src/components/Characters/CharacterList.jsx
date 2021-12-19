@@ -1,33 +1,48 @@
-import React, { useState, useEffect } from 'react'
-import Form from './CharacterForm'
-import { getCharacter } from '../../services/characterService'
-import CharacterCard from './CharacterCard'
+import React, { useState, useEffect } from "react";
+import { getCharacter } from "../../services/characterService";
+import CharacterCard from "./CharacterCard";
+import Form from "./Form"
+
 
 function CharacterList() {
-  const [chars, setChars] = useState([])
-  
-  useEffect(() => {
-    const fetchAllChar = async () => {
-      const charData = await getCharacter()
-      setChars(charData.data.results)
-      console.log("api data", charData.data.results)
-    }
-    fetchAllChar()
-    return () => { setChars([]) }
-  }, [])
-   console.log(chars)
+  const [chars, setChars] = useState();
+
+  const handleSearch = async (name) => {
+    console.log("handleSearch name", name)
+    const charData = await getCharacter(name)
+    console.log("this is char data", charData)
+    setChars(charData)
+  }
+
+  // useEffect(() => {
+  //   const fetchAllChar = async () => {
+  //     const charData = await getCharacter();
+  //     setChars(charData.data);
+  //     console.log("api data", charData.data.results);
+  //   };
+  //   fetchAllChar();
+  //   return () => {
+  //     setChars([]);
+  //   };
+  // }, []);
+
   return (
     <>
       <h1> Search Character Page </h1>
-      <Form chars={chars}/>
-      {chars.map((character) =>(
+      <Form handleSearch={handleSearch} />
+      {chars && 
         <CharacterCard 
-          character={character}
-          key={character.id}
-        />
-      ))}
+        character={chars}
+        key={chars.id}
+      />
+      }
+        
     </>
   )
 }
 
-export default CharacterList
+
+// {chars.map((character) => (
+//   <CharacterCard character={character} key={character.id} />
+
+export default CharacterList;
