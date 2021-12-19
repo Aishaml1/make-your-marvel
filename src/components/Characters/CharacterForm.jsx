@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-
+import CharacterCard from './CharacterCard'
 
 function Form(props) {
+  console.log("props data in form", props)
   const [characterTitle, setCharacterTitle] = useState('')
 
   const handleSubmit = e => {
@@ -30,6 +31,7 @@ function Form(props) {
         <button onClick={refreshPage}> Make API call again
         </button>
       </form>
+  
     </>
   );
 }
