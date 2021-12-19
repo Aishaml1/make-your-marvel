@@ -15,7 +15,7 @@ function CharacterList() {
     fetchAllChar()
     return () => { setChars([]) }
   }, [])
-   console.log(chars)
+  console.log(chars)
   return (
     <>
       <h1> Search Character Page </h1>
