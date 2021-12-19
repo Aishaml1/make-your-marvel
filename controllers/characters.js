@@ -4,8 +4,9 @@ import { Profile } from '../models/profile.js'
 
 function search(req, res) {
   console.log("function hit backend")
-  marvelApi.get(`http://gateway.marvel.com/v1/public/characters?&ts=1&apikey=f5fd89757a7f10387ce423f3f28c64df&hash=aaef7f942c150ae767af53eb559c9708`)
-    .then(character => res.json(character.data))
+  console.log("character req queryname", req.query.name)
+  marvelApi.get(`http://gateway.marvel.com/v1/public/characters?&ts=1&apikey=f5fd89757a7f10387ce423f3f28c64df&hash=aaef7f942c150ae767af53eb559c9708&name=${req.query.name}`)
+    .then(character => res.json(character.data.data.results[0]))
     .catch(err => {
       console.log(err)
       res.status(500).json(err)

@@ -5,23 +5,22 @@ import * as charactersCtrl from '../controllers/characters.js'
 const router = Router()
 
 // ========= Public Routes ========= 
+router.get('/', charactersCtrl.search)
 
 
 // ========= Protected Routes ========= 
 router.use(decodeUserFromToken)
 
 //localhost:3001/api/characters -GET
-router.get('/', charactersCtrl.search)
 
 //localhost:3001/api/characters - POST 
-router.post('/', checkAuth, charactersCtrl.addToTeam)
+// router.post('/:id/add', checkAuth, charactersCtrl.addToTeam)
 
 //localhost:3001/api/character/:id
 router.get('/:id', checkAuth, charactersCtrl.show)
 
 //Quotes
 router.post('/:id/quotes', checkAuth, charactersCtrl.createQuote)
-
 
 
 //localhost:3001/api/characters - POST 

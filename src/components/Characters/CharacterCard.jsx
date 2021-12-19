@@ -1,8 +1,8 @@
 import React from 'react'
 
 
-const CharacterCard = ({ character,user }) => {
-  console.log(character)
+const CharacterCard = ({ character }) => {
+  // console.log(character)
   return (
     <div>
       <h1>{character.name} </h1>
