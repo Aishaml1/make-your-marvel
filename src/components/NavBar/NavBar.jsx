@@ -12,7 +12,7 @@ const NavBar = ({ user, handleLogout }) => {
             <img src={''} alt="make your mavel">
             </img></Link></li>
             <li className='welcome'>Welcome, {user.name} </li>
-            <li><Link to="/" className='navbar' >Search</Link></li>
+            <li><Link to="/characterSearch" className='navbar' >Search</Link></li>
             <li><Link to="/profile" className='navbar' >My Profile</Link></li>
             <li><Link to="/profiles" className='navbar' > All Profiles</Link></li>
             <li><Link to="" className='navbar' onClick={handleLogout}>LOG OUT</Link></li>
