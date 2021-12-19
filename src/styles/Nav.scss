@@ -38,7 +38,7 @@
     }
     &:hover {
         &::before {
-            background: linear-gradient(to bottom, #ffffff, #e63030d2);
+            background: linear-gradient(to bottom, #ff0d0d, #e63030d2);
             box-shadow: 0px 3px 20px 0px black;
             transform: scale(1);
         }
@@ -82,7 +82,7 @@
         }
         &:hover {
             &::before {
-                background: linear-gradient(to bottom, #e8edec, #d2d1d3);
+                background: linear-gradient(to bottom, #d3d3d3, #f61313);
                 box-shadow: 0px 3px 20px 0px black;
                 transform: scale(1.2);
             }

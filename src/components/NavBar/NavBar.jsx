@@ -9,7 +9,7 @@ const NavBar = ({ user, handleLogout }) => {
           <ul className='menu-bar' >
           <li>
             <Link to="/" className='logo'>
-            <img src={'mym.jpeg'} alt="Girl in a jacket" width="500" height="600">
+            <img src={''} alt="make your mavel">
             </img></Link></li>
             <li className='welcome'>Welcome, {user.name} </li>
             <li><Link to="/" className='navbar' >Search</Link></li>
