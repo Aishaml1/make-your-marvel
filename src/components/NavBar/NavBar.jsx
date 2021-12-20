@@ -1,16 +1,15 @@
 import { Link } from 'react-router-dom'
 import '../../styles/Nav.scss'
 
+
 const NavBar = ({ user, handleLogout }) => {
   return (
     <>
+    <li><Link to="/" className='logo'>
+        MYM </Link></li>
       {user ?
         <nav>
           <ul className='menu-bar' >
-          <li>
-            <Link to="/" className='logo'>
-            <img src={''} alt="make your mavel">
-            </img></Link></li>
             <li className='welcome'>Welcome, {user.name} </li>
             <li><Link to="/characterSearch" className='navbar' >Search</Link></li>
             <li><Link to="/profile" className='navbar' >My Profile</Link></li>
