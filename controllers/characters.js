@@ -52,14 +52,40 @@ const createQuote = async (req, res) => {
   }
 }
 
-// function addToComic(req, res) {
-// }
+const deleteQuote = async (req, res) => {
+  try{
+    const quote = await Character.findById(req.params.id)
+    quote.quotes.remove({_id: req.params.quoteId})
 
+    await quote.save()
+    return res.status(204).end()
+  } catch(err){
+    res.status(500).json(err)
+  }
+}
+
+const deleteCharacter = async (req, res) => {
+  try {
+    await Character.findByIdAndDelete(req.params.id)
+    const profile = await Profile.findById(req.user.profile)
+    profile.team.remove({ _id: req.params.id })
+    await profile.save()
+    return res.status(204).end()
+  } catch (err) {
+    return res.status(500).json(err)
+  }
+}
+
+const updateQuote = async (req, res) =>{
+  console.log("update quotes here")
+}
 
 export {
   search,
   addToTeam,
-  // addToComic,
   show,
   createQuote,
+  deleteCharacter as delete,
+  deleteQuote,
+  updateQuote,
 }
