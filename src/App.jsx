@@ -10,6 +10,7 @@ import * as authService from './services/authService'
 
 //Components 
 import CharacterList from './components/Characters/CharacterList'
+import CharacterCard from './components/Characters/CharacterCard'
 
 const App = () => {
 
@@ -51,6 +52,10 @@ const App = () => {
           path="/charactersearch"
           element={user ? <CharacterList /> : <Navigate to="/login" />}
         />
+      <Route
+          path="/character/:id"
+          element={user ? <CharacterCard /> : <Navigate to="/login" />}
+        />  
       </Routes>
     </>
   )
