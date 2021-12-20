@@ -16,7 +16,7 @@ function search(req, res) {
 const addToTeam = async (req, res) => {
   try {
     req.body.added_by = req.user.profile
-    const newChar = await new Character(req.query.name)
+    const newChar = await new Character(req.body)
     await newChar.save()
     await Profile.updateOne(
       { _id: req.user.profile },
@@ -52,15 +52,23 @@ const createQuote = async (req, res) => {
   }
 }
 
-function deleteQuote (req, res){
-  console.log("delete Quotes hitting")
+const deleteQuote = async (req, res) => {
+  try{
+    const quote = await Character.findById(req.params.id)
+    quote.quotes.remove({_id: req.params.quoteId})
+
+    await quote.save()
+    return res.status(204).end()
+  } catch(err){
+    res.status(500).json(err)
+  }
 }
 
 const deleteCharacter = async (req, res) => {
   try {
     await Character.findByIdAndDelete(req.params.id)
     const profile = await Profile.findById(req.user.profile)
-    profile.teams.remove({ _id: req.params.id })
+    profile.team.remove({ _id: req.params.id })
     await profile.save()
     return res.status(204).end()
   } catch (err) {
@@ -68,7 +76,9 @@ const deleteCharacter = async (req, res) => {
   }
 }
 
-
+const updateQuote = async (req, res) =>{
+  console.log("update quotes here")
+}
 
 export {
   search,
@@ -76,5 +86,6 @@ export {
   show,
   createQuote,
   deleteCharacter as delete,
-  deleteQuote 
+  deleteQuote,
+  updateQuote,
 }
