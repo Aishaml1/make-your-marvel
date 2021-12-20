@@ -16,7 +16,7 @@ function search(req, res) {
 const addToTeam = async (req, res) => {
   try {
     req.body.added_by = req.user.profile
-    const newChar = await new Character(req.body)
+    const newChar = await new Character(req.query.name)
     await newChar.save()
     await Profile.updateOne(
       { _id: req.user.profile },
@@ -52,14 +52,29 @@ const createQuote = async (req, res) => {
   }
 }
 
-// function addToComic(req, res) {
-// }
+function deleteQuote (req, res){
+  console.log("delete Quotes hitting")
+}
+
+const deleteCharacter = async (req, res) => {
+  try {
+    await Character.findByIdAndDelete(req.params.id)
+    const profile = await Profile.findById(req.user.profile)
+    profile.teams.remove({ _id: req.params.id })
+    await profile.save()
+    return res.status(204).end()
+  } catch (err) {
+    return res.status(500).json(err)
+  }
+}
+
 
 
 export {
   search,
   addToTeam,
-  // addToComic,
   show,
   createQuote,
+  deleteCharacter as delete,
+  deleteQuote 
 }

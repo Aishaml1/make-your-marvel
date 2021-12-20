@@ -41,8 +41,4 @@ function CharacterList() {
   )
 }
 
-
-// {chars.map((character) => (
-//   <CharacterCard character={character} key={character.id} />
-
 export default CharacterList;
