@@ -1,12 +1,15 @@
 import React from 'react'
-
+import { useState } from 'react'
+import { useLocation } from 'react-router-dom'
 
 const CharacterCard = ({ character }) => {
-  // console.log(character)
+  const location = useLocation()
+  const [hero, setHero] = useState(location.state)
+
   return (
     <div>
-      <h1>{character.name} </h1>
-      <img src={`${character.thumbnail.path}.${character.thumbnail.extension}`} alt="" />
+      <h1>{hero.name}</h1>
+      <img src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`} alt="" />
     </div>
   )
 }

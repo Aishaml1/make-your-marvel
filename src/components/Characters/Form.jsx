@@ -1,25 +1,22 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 function Form(props) {
-  const [charName, setCharName] = useState('')
+  console.log("props in Form", props);
+  const [charName, setCharName] = useState("");
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    props.handleSearch(charName)
-    setCharName('')
+    props.handleSearch(charName);
+    setCharName("");
   };
 
-  const handleChange = e => {
-    const search =  e.target.value
-    setCharName(search)
+  const handleChange = (e) => {
+    const search = e.target.value;
+    setCharName(search);
   };
 
-  const refreshPage = () => {
-    window.location.reload()
-  }
-  console.log("charSearch", charName)
-
-  return (
+  
+    return (
     <>
       <form onSubmit={handleSubmit}>
         <label htmlFor="charName">Search:</label>
@@ -31,10 +28,9 @@ function Form(props) {
           onChange={handleChange}
         />
         <input type="submit" value="Submit" />
-        <button onClick={refreshPage}>Make API Call Again</button>
       </form>
     </>
-  )
+  );
 }
 
-export default Form
+export default Form;
