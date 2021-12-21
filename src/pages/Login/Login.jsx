@@ -18,7 +18,7 @@ const LoginPage = props => {
         handleSignupOrLogin={props.handleSignupOrLogin}
         updateMessage={updateMessage}
       />
-      <img src={mym} alt="make your marvel"></img>
+      <img  className='login' src={mym} alt="make your marvel"></img>
     </main>
   )
 }
