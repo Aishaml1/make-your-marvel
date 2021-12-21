@@ -7,6 +7,7 @@ import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import MyProfile from './pages/MyProfile/MyProfile'
 import * as authService from './services/authService'
+import ComicCard from './Comics/ComicCard'
 
 
 //Components 
@@ -60,6 +61,10 @@ const App = () => {
       <Route
           path="/character/:id"
           element={user ? <CharacterCard /> : <Navigate to="/login" />}
+        />  
+        <Route
+        path="/character/:id"
+        element={user ? <ComicCard /> : <Navigate to="/login" />}
         />  
       </Routes>
     </>
