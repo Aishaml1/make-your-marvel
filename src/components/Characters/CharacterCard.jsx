@@ -39,11 +39,6 @@ const CharacterCard = () => {
       <h1>{hero.name}</h1>
       <img src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`} alt="" width="300px" height="300px" />
       <h4>Description: {hero.description}</h4>
-      <h4>Comics: </h4>
-        {/* <ul>{hero.comics.items.map((comic, idx) => (
-          <li><Link to="/comics" key={idx}>{comic.name}</Link></li>
-        ) )}
-        </ul> */}
       <button type='submit' onClick={() => addToTeam(hero) }>Add to Team</button>
       <button onClick={() => navigate(-1)}>Cancel</button>
 
