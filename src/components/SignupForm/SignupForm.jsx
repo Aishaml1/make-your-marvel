@@ -6,7 +6,6 @@ import * as authService from '../../services/authService'
 
 const SignupForm = props => {
   const navigate = useNavigate()
-  // const [popup, setPopup] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
