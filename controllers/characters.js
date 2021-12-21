@@ -15,6 +15,7 @@ const addToTeam = async (req, res) => {
   try {
     req.body.added_by = req.user.profile
     const newChar = await new Character(req.body)
+    console.log("chracter data here", req.body)
     await newChar.save()
     await Profile.updateOne(
       { _id: req.user.profile },
