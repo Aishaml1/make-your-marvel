@@ -9,7 +9,17 @@ function index(req, res) {
   })
 }
 
+function getProfileById(req, res) {
+  Profile.findById(req.user.profile)
+  .populate("team")
+  .populate("comics")
+  .then(profile => res.json(profile))
+  .catch(err => {
+    console.log(err)
+    res.status(500).json(err)
+  })
+}
 
-export { index }
+export { index, getProfileById }
 
 
