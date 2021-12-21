@@ -9,7 +9,7 @@ export const getAllComics = async (id) => {
                 'Authorization': `Bearer ${tokenService.getToken()}`
             },
         })
-        console.log("this is res", res)
+        console.log("this is Comics", res)
         const data = await res.json()
         return data
     } catch (error) {
