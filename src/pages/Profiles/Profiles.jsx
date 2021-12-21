@@ -6,8 +6,8 @@ const Profiles = () => {
   const [profiles, setProfiles] = useState([])
 
   useEffect(()=> {
-    profileService.getAllProfiles()
-    .then(profiles => setProfiles(profiles))
+    // profileService.getAllProfiles()
+    // .then(profiles => setProfiles(profiles))
   }, [])
 
   return (
