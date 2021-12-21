@@ -1,10 +1,10 @@
-import { Comic } from '../models/comic'
-import { Profile } from '../models/profile'
-import { marvelApi } from '../config/api'
+import { Comic } from '../models/comic.js'
+import { Profile } from '../models/profile.js'
+import { marvelApi } from '../config/api.js'
 
 
 function searchComic(req, res){
-  marvelApi.get(`https://gateway.marvel.com:443/v1/public/comics?characters=1009351&ts=1&apikey=f5fd89757a7f10387ce423f3f28c64df&hash=aaef7f942c150ae767af53eb559c9708`)
+  marvelApi.get(`https://gateway.marvel.com:443/v1/public/comics?characters=${req.params.id}&ts=1&apikey=f5fd89757a7f10387ce423f3f28c64df&hash=aaef7f942c150ae767af53eb559c9708`)
     .then(comic => res.json(comic.data.data.results[0]))
     .catch(err => {
       console.log(err)
@@ -18,7 +18,7 @@ const addComic = async (req, res)=> {
     const newComic = await new Comic(req.params.id)
     await newComic.save()
     await Profile.updateOne(
-      { _id: req.user.profil },
+      { _id: req.user.profile },
       { $push: {comics: newComic}}
     )
     return res.status(201).json(newComic)
@@ -26,7 +26,6 @@ const addComic = async (req, res)=> {
     return res.status(500).json(err)
   }
 }
-
 
 
 
