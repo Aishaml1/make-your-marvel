@@ -7,7 +7,6 @@ import { addQuoteToProfile } from "../../services/characterService";
 import UserCard  from "../../components/misc/UserCard"
 
 const MyProfile = ({user}) => {
-  console.log("this is user", user)
   const navigate = useNavigate()
   const [character1, setCharacter1] = useState()
   const [character2, setCharacter2] = useState()
@@ -45,15 +44,15 @@ const MyProfile = ({user}) => {
     <>
       <h1>This is My Profile</h1>
       { character1 &&
-      <CharCard character={character1} addQuote={addQuote} />
+      <CharCard character={character1} addQuote={addQuote} setContent={setContent} content={content} />
       }
 
       { character2 &&
-      <CharCard character={character2} addQuote={addQuote} />
+      <CharCard character={character2} addQuote={addQuote} setContent={setContent} content={content} />
       }
       
       { character3 &&
-      <CharCard character={character3} addQuote={addQuote} />
+      <CharCard character={character3} addQuote={addQuote} setContent={setContent} content={content} />
       }
 
       { profileData && 
