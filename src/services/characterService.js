@@ -12,3 +12,22 @@ export const getCharacter = async (name) => {
     throw error
   }
 }
+
+export const addCharacter = async (hero) => {
+  console.log("hero in services", hero)
+  try {
+    const res = await fetch(`${BASE_URL}/${hero.id}/add`, {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        'content-type': 'application/json',
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      },
+      body: JSON.stringify(hero)
+    })
+    const data = await res.json()
+    return data
+  } catch (error) {
+    throw error
+  }
+}
