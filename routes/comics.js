@@ -12,7 +12,7 @@ const router = Router()
 router.use(decodeUserFromToken)
 
 //localhost:3001/api/comics/  - GET 
-router.get('/', checkAuth, comicsCtrl.searchComic)
+router.get('/:id', checkAuth, comicsCtrl.searchComic)
 //localhost:3001/api/comics/add - POST 
 router.post('/', checkAuth, comicsCtrl.addComic)
 
