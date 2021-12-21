@@ -5,7 +5,7 @@ import { marvelApi } from '../config/api.js'
 
 function searchComic(req, res){
   marvelApi.get(`https://gateway.marvel.com:443/v1/public/comics?characters=${req.params.id}&ts=1&apikey=f5fd89757a7f10387ce423f3f28c64df&hash=aaef7f942c150ae767af53eb559c9708`)
-    .then(comic => res.json(comic.data.data.results[0]))
+    .then(comic => res.json(comic.data.data.results))
     .catch(err => {
       console.log(err)
       res.status(500).json(err)
