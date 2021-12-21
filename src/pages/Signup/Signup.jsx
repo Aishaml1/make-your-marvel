@@ -7,13 +7,8 @@ import AvatarSelection from './AvatarSelection'
 
 const Signup = props => {
   const [message, setMessage] = useState([''])
-  const [popup, setPopup] = useState(false)
   const updateMessage = msg => {
     setMessage(msg)
-  }
-
-  const handlePopup = () => {
-    setPopup(!popup)
   }
 
 
@@ -30,10 +25,6 @@ const Signup = props => {
           animData={ironMan} />
       </div>
       <div>
-        {popup &&
-        <AvatarSelection
-          handlPopup={handlePopup}
-        /> </div> 
       </div>
     </main>
 

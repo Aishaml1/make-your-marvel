@@ -12,9 +12,7 @@ const characterSchema = new Schema({
   name: {
     type: String,
   },
-  path: {
-    type: String,
-  },
+  thumbnail:{ path: {type: String,},extension: {type: String,}},
   description: {
     type: String,
   },
