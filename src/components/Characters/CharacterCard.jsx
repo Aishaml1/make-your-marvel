@@ -1,7 +1,8 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect} from 'react'
 import { useLocation, useNavigate, Link } from 'react-router-dom'
 import { addCharacter } from '../../services/characterService'
+import { getAllComics } from '../../services/comicsService'
 
 const CharacterCard = () => {
   const location = useLocation()
@@ -20,6 +21,16 @@ const CharacterCard = () => {
       throw error
     }
   }
+
+    useEffect(() => {
+    const fetchAllComics = async () => {
+      const comicsData = await getAllComics(hero.id);
+      // console.log(chars.id, 'This is chars')
+      // setAddComics(comicsData.data);
+      console.log("api data", comicsData);
+    };
+    fetchAllComics();
+  }, []);
 
   return (
     <div>

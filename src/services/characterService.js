@@ -2,6 +2,7 @@ import * as tokenService from "./tokenService"
 
 const BASE_URL = '/api/characters'
 
+
 export const getCharacter = async (name) => {
   try {
     const res = await fetch(`${BASE_URL}?name=${name}`)
@@ -31,3 +32,5 @@ export const addCharacter = async (hero) => {
     throw error
   }
 }
+
+
