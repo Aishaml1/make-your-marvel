@@ -2,16 +2,25 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import styles from './SignupForm.module.css'
 import * as authService from '../../services/authService'
-
+import AvatarSelection from '../../pages/Signup/AvatarSelection'
+import hulk from '../../assets/avatars/hulk.png'
 
 const SignupForm = props => {
   const navigate = useNavigate()
+  const [popup, setPopup] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     password: '',
     passwordConf: '',
+    avatar: hulk 
   })
+
+
+  const handlePopup = () => {
+    setPopup(!popup)
+  }
+
 
   const handleChange = e => {
     props.updateMessage('')
@@ -39,6 +48,15 @@ const SignupForm = props => {
   }
 
   return (
+    <div className="signup-page">
+    {popup &&
+      <AvatarSelection
+        formData={formData}
+        handleChange={handleChange}
+        handlePopup={handlePopup}
+      />
+    }
+    
     <form
       autoComplete="off"
       onSubmit={handleSubmit}
@@ -90,6 +108,15 @@ const SignupForm = props => {
           onChange={handleChange}
         />
       </div>
+      <div>
+        <button 
+        autocomplete="off"
+        id="avatar-button"
+        type="button"
+        onClick={handlePopup}>
+          Select Avatar 
+        </button>
+      </div>
       <div className={styles.inputContainer}>
         <button disabled={isFormInvalid()} className={styles.button}>
           Sign Up
@@ -99,6 +126,7 @@ const SignupForm = props => {
         </Link>
       </div>
     </form>
+    </div>
   )
 }
 

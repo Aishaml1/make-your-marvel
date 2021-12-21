@@ -8,7 +8,6 @@ return(
     <img src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} alt = 'comics' ></img>
     <button >+</button>
 </div>
-
 )
 }
 
