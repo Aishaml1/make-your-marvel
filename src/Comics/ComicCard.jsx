@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 
@@ -31,19 +30,6 @@ const ComicCard = ({ comic }) => {
         </div>
 
     )
-=======
-const ComicCard = ({comic}) => {
-console.log(comic,'this is comic')
-
-return(
-<div> 
-    <h1>Comics: </h1>
-    <h2> {comic.title}</h2>
-    <img src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} alt = 'comics' ></img>
-    <button >+</button>
-</div>
-)
->>>>>>> 8be88e41f3646be92e62ed79154f1c32e70f1e38
 }
 
 export default ComicCard
