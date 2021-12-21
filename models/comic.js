@@ -9,9 +9,7 @@ const comicSchema = new Schema({
   description: {
     type: String,
   },
-  path: {
-    type: String,
-  },
+  thumbnail:{ path: {type: String,},extension: {type: String,}},
 })
 
 const Comic = mongoose.model("Comic", comicSchema)
