@@ -2,11 +2,13 @@ import { Router } from 'express'
 import { decodeUserFromToken, checkAuth } from '../middleware/auth.js'
 import * as charactersCtrl from '../controllers/characters.js'
 
+
 const router = Router()
 
 // ========= Public Routes ========= 
 //localhost:3001/api/characters/
 router.get('/', charactersCtrl.search)
+
 
 // ========= Protected Routes ========= 
 router.use(decodeUserFromToken)
@@ -25,7 +27,7 @@ router.post('/:id/quotes', checkAuth, charactersCtrl.createQuote)
 //localhost:3001/api/characters/:id/quotes/:quoteId
 router.delete('/:id/quotes/:quoteId', checkAuth, charactersCtrl.deleteQuote)
 //localhost:3001/api/character/:quoteId/quotes/:quoteId 
-router.put('/:characterId/quotes/:quoteId', checkAuth, charactersCtrl.updateQuote)
+router.put('/:Id/quotes/:quoteId', checkAuth, charactersCtrl.updateQuote)
 
 
 export {
