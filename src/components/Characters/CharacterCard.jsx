@@ -13,6 +13,7 @@ const CharacterCard = () => {
   const [hero, setHero] = useState(location.state)
   console.log("this is hero", hero)
 
+
   const addToTeam = async(e) => {
     // e.preventDefault()
     try {
@@ -23,6 +24,8 @@ const CharacterCard = () => {
       throw error
     }
   }
+
+
 
     useEffect(() => {
     const fetchAllComics = async () => {
@@ -41,7 +44,7 @@ const CharacterCard = () => {
       <h4>Description: {hero.description}</h4>
       <button type='submit' onClick={() => addToTeam(hero) }>Add to Team</button>
       <button onClick={() => navigate(-1)}>Cancel</button>
-
+      
       {comics.map((comic)=>(
         <ComicCard 
         comic={comic}
