@@ -3,8 +3,6 @@ import { Character } from '../models/character.js'
 import { Profile } from '../models/profile.js'
 
 function search(req, res) {
-  console.log("function hit backend")
-  console.log("character req queryname", req.query.name)
   marvelApi.get(`http://gateway.marvel.com/v1/public/characters?&ts=1&apikey=f5fd89757a7f10387ce423f3f28c64df&hash=aaef7f942c150ae767af53eb559c9708&name=${req.query.name}`)
     .then(character => res.json(character.data.data.results[0]))
     .catch(err => {
@@ -53,13 +51,13 @@ const createQuote = async (req, res) => {
 }
 
 const deleteQuote = async (req, res) => {
-  try{
+  try {
     const quote = await Character.findById(req.params.id)
-    quote.quotes.remove({_id: req.params.quoteId})
+    quote.quotes.remove({ _id: req.params.quoteId })
 
     await quote.save()
     return res.status(204).end()
-  } catch(err){
+  } catch (err) {
     res.status(500).json(err)
   }
 }
@@ -76,8 +74,17 @@ const deleteCharacter = async (req, res) => {
   }
 }
 
-const updateQuote = async (req, res) =>{
-  console.log("update quotes here")
+const updateQuote = async (req, res) => {
+  try {
+    const updatedQuote = await Character.findByIdAndUpdate(
+      req.params.id,
+      req.body.content,
+      { new: true }
+    )
+    return res.status(200).json(updatedQuote)
+  } catch (err) {
+    return res.status(500).json(err)
+  }
 }
 
 export {
