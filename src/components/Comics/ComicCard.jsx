@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-
+import { addAComic } from '../../services/comicsService'
 
 
 const ComicCard = ({ comic }) => {
@@ -8,15 +8,14 @@ const ComicCard = ({ comic }) => {
 
     const location = useLocation()
     const navigate = useNavigate()
-    const [addComic, setaddComic] = useState(location.state)
-    console.log(addComic, 'this here')
+    const [com, setCom] = useState(location.state)
 
-    const add = async (e) => {
+    const addComic = async (e) => {
         // e.preventDefault()
         try {
-            const addingComic = await (addComic)
-            console.log('is this adding one comic ?', addingComic)
-            navigate('/')
+            const addingComic = await addAComic(comic)
+            console.log(addingComic, 'adding one comic')
+            navigate('/profile')
         } catch (error) {
             throw error
         }
@@ -26,7 +25,7 @@ const ComicCard = ({ comic }) => {
         <div>
             <h2> {comic.title}</h2>
             <img src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} alt='comics' ></img>
-            <button type='submit' onClick={() => add(addComic) }>Add</button>
+            <button type='submit' onClick={() => addComic(com) }>Add</button>
         </div>
 
     )

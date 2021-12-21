@@ -14,7 +14,7 @@ router.use(decodeUserFromToken)
 //localhost:3001/api/comics/  - GET 
 router.get('/:id', checkAuth, comicsCtrl.allComics)
 //localhost:3001/api/comics/add - POST 
-router.post('/', checkAuth, comicsCtrl.addComic)
+router.post('/:id/add', checkAuth, comicsCtrl.addComic)
 
 
 export {
