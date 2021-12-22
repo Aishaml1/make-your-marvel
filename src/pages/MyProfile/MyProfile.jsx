@@ -4,14 +4,14 @@ import { getMyProfile } from "../../services/profileService";
 import UserCard from "../../components/misc/UserCard"
 import * as characterService from '../../services/characterService'
 
-
-
-const MyProfile = () => {
+  const MyProfile = () => {
   const [character1, setCharacter1] = useState()
   const [character2, setCharacter2] = useState()
   const [character3, setCharacter3] = useState()
   const [profileData, setProfileData] = useState()
+  const  [comics, setComics] = useState([]) 
 
+  console.log('is this the comics' , comics)
 
   const updateCharacter = (updatedChar, id) => {
 
@@ -48,9 +48,11 @@ const MyProfile = () => {
       setCharacter2(data.team[1])
       setCharacter3(data.team[2])
       setProfileData(data)
+      setComics(data.comics)
     }
     getProfile()
   }, [])
+
 
 
   return (
@@ -70,7 +72,15 @@ const MyProfile = () => {
       {character3 &&
         <CharCard character={character3} updateCharacter={updateCharacter} handleDeleteCharacter={handleDeleteCharacter} />
       }
-
+      <div>
+        <h3>My Comics</h3>
+        {comics.map((comic)=>(
+          <div key={comic._id}>
+            <img src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} alt='comics'/>
+            <p>{comic.title}</p>
+          </div>
+        ))}
+      </div>
     </>
   )
 }
