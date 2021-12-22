@@ -33,17 +33,15 @@ export const addCharacter = async (hero) => {
   }
 }
 
-export const addQuoteToProfile = async (hero) => {
-  console.log("hero in services", hero)
+export const addQuoteToProfile = async (id, content) => {
   try {
-    const res = await fetch(`${BASE_URL}/${hero.id}/quotes`, {
+    const res = await fetch(`${BASE_URL}/${id}/quotes`, {
       method: "POST",
-      mode: "cors",
       headers: {
-        'hero-type': 'application/json',
+        'content-type': 'application/json',
         'Authorization': `Bearer ${tokenService.getToken()}`
       },
-      body: JSON.stringify(hero)
+      body: JSON.stringify(content)
     })
     const data = await res.json()
     return data
@@ -51,5 +49,15 @@ export const addQuoteToProfile = async (hero) => {
     throw error
   }
 }
-  
 
+
+export const deleteCharacter = async (characterId) => {
+  try {
+    await fetch(`${BASE_URL}${characterId}`, {
+      method: 'DELETE',
+      headers: { 'Authorization': 'Bearer ' + tokenService.getToken() }
+    })
+  } catch (error) {
+    throw error
+  }
+}

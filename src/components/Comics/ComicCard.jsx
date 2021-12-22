@@ -11,7 +11,7 @@ const ComicCard = ({ comic }) => {
     const [com, setCom] = useState(location.state)
 
     const addComic = async (e) => {
-        // e.preventDefault()
+        e.preventDefault()
         try {
             const addingComic = await addAComic(comic)
             console.log(addingComic, 'adding one comic')
@@ -25,7 +25,7 @@ const ComicCard = ({ comic }) => {
         <div>
             <h2> {comic.title}</h2>
             <img src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} alt='comics' ></img>
-            <button type='submit' onClick={() => addComic(com) }>Add</button>
+            <button type='submit' onClick={(e) => addComic(e, com)}>Add</button>
         </div>
 
     )
