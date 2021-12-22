@@ -8,7 +8,7 @@ const UserCard = (props) => {
       <img src={props.profileData.avatar} alt="user animal avatar" />
       <div className="user-info">
         <h4>
-          {props.profileData.name}
+          I am {props.profileData.name}
         </h4>
       </div>
     </div>
