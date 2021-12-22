@@ -33,6 +33,7 @@ const MyProfile = () => {
     getProfile()
   }, [])
 
+
   return (
     <>
       { profileData && 
