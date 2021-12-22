@@ -27,7 +27,7 @@ router.post('/:id/quotes', checkAuth, charactersCtrl.createQuote)
 //localhost:3001/api/characters/:id/quotes/:quoteId
 router.delete('/:id/quotes/:quoteId', checkAuth, charactersCtrl.deleteQuote)
 //localhost:3001/api/character/:quoteId/quotes/:quoteId 
-router.put('/:Id/quotes/:quoteId', checkAuth, charactersCtrl.updateQuote)
+router.put('/:id/quotes/:quoteId', checkAuth, charactersCtrl.updateQuote)
 
 
 export {
