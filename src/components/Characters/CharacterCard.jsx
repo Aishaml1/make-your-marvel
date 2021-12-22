@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect} from 'react'
-import { useLocation, useNavigate, Link } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { addCharacter } from '../../services/characterService'
 import { getAllComics } from '../../services/comicsService'
 import ComicCard from "../../Comics/ComicCard"
@@ -19,18 +19,15 @@ const CharacterCard = () => {
     try {
       const team = await addCharacter(hero)
       console.log("this is team", team)
-      navigate('/')
+      navigate('/profile')
     } catch (error) {
       throw error
     }
   }
 
-
-
     useEffect(() => {
     const fetchAllComics = async () => {
       const comicsData = await getAllComics(hero.id);
-      // console.log(chars.id, 'This is chars')
       setComics(comicsData);
       console.log("api data", comicsData);
     };
@@ -53,8 +50,6 @@ const CharacterCard = () => {
       ))}
 
     </div>
-      
-    
   )
 }
 

@@ -23,7 +23,7 @@ router.delete('/:id', checkAuth, charactersCtrl.delete)
 
 //*Quotes
 //localhost:3001/api/characters/:id/quotes
-router.post('/quotes', checkAuth, charactersCtrl.createQuote)
+router.post('/:id/quotes', checkAuth, charactersCtrl.createQuote)
 //localhost:3001/api/characters/:id/quotes/:quoteId
 router.delete('/:id/quotes/:quoteId', checkAuth, charactersCtrl.deleteQuote)
 //localhost:3001/api/character/:quoteId/quotes/:quoteId 

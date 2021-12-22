@@ -1,17 +1,27 @@
-import react from "react";
+import React, { useState } from "react";
+import { addQuoteToProfile } from "../../services/characterService";
 
+const CharCard = ({character, updateCharacter }) => {
+  const [content, setContent] = useState("")
 
-const CharCard = ({character, addQuote, setContent, content }) => {
-  console.log("this is character in CharCard", character)
-  // console.log("this is addQuote in CharCard", addQuote)
-  // console.log("this is setContent in CharCard", setContent)
-  
-  
+  const formData = {
+    content: content,
+  }
+
+  const addQuote = async(e, id) => {
+    e.preventDefault()
+    try {
+      const updatedChar = await addQuoteToProfile(id, formData)
+      updateCharacter(updatedChar, id)
+      setContent("")
+    } catch (error) {
+      throw error
+    }
+  }
 
   return (
-    
     <div>
-      <form onSubmit={addQuote}>
+      <form onSubmit={(e) => addQuote(e, character._id)}>
         <p>{character.name}</p>
         <img src={`${character.thumbnail.path}.${character.thumbnail.extension}`} alt="" height="300px" width="300px"></img>
         <input
@@ -22,7 +32,6 @@ const CharCard = ({character, addQuote, setContent, content }) => {
           placeholder='Say something!'
           value={content}
           onChange={(e) => setContent(e.target.value)}
-          character={character}
         />
         <button type="submit">Add Quote</button>
       </form>

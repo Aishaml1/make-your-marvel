@@ -33,9 +33,9 @@ export const addCharacter = async (hero) => {
   }
 }
 
-export const addQuoteToProfile = async (content) => {
+export const addQuoteToProfile = async (id, content) => {
   try {
-    const res = await fetch(`${BASE_URL}/quotes`, {
+    const res = await fetch(`${BASE_URL}/${id}/quotes`, {
       method: "POST",
       headers: {
         'content-type': 'application/json',

@@ -40,12 +40,11 @@ const show = async (req, res) => {
 
 const createQuote = async (req, res) => {
   try {
-    req.body.content = req.user.profile
-    const quote = await Character.findById(req.params.id)
-    quote.quotes.push(req.body)
-    await quote.save()
-    const newQuote = quote.quotes[quote.quotes.length - 1]
-    return res.status(201).json(newQuote)
+    const character = await Character.findById(req.params.id)
+    character.quotes.push(req.body)
+    await character.save()
+    const newQuote = character.quotes[character.quotes.length - 1]
+    return res.status(201).json(character)
   } catch (err) {
     res.status(500).json(err)
   }
