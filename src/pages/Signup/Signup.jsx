@@ -15,11 +15,11 @@ const Signup = props => {
   return (
     <main>
       <div className={styles.container} >
-        <h1 className={styles.signup} >Sign Up</h1>
+      <h1 className={styles.signup} >Sign Up</h1>
         <SignupForm {...props}
           updateMessage={updateMessage} />
       </div>
-      <div className={styles.speech}>{message}</div>
+      <div className={styles.bubble} ><p className={styles.speech}>{message} </p></div>
       <div className={styles.leftcontainer}>
         <Animation
           animData={ironMan} />

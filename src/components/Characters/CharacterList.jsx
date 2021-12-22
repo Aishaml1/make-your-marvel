@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { getCharacter } from "../../services/characterService";
 import Form from "./Form"
 import { useNavigate } from "react-router-dom"
-
+import CharacterCard from "./CharacterCard";
+import CharCard from '../../pages/MyProfile/CharCard'
 
 function CharacterList() {
   const [chars, setChars] = useState();
