@@ -34,7 +34,10 @@ const MyProfile = () => {
 
   return (
     <>
-      <h1>This is My Profile</h1>
+      { profileData && 
+      <UserCard profileData={profileData} />      
+      }
+
       { character1 &&
       <CharCard character={character1} updateCharacter={updateCharacter} />
       }
@@ -47,9 +50,6 @@ const MyProfile = () => {
       <CharCard character={character3} updateCharacter={updateCharacter} />
       }
 
-      { profileData && 
-      <UserCard profileData={profileData} />      
-      }
     </>    
   )
 }
