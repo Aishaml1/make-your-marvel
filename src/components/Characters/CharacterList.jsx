@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { getCharacter } from "../../services/characterService";
+import { deleteCharacter, getCharacter } from "../../services/characterService";
 import Form from "./Form"
 import { useNavigate } from "react-router-dom"
-import CharacterCard from "./CharacterCard";
 import CharCard from '../../pages/MyProfile/CharCard'
 
 function CharacterList() {
@@ -14,12 +13,12 @@ function CharacterList() {
     navigate(`/character/${charData.id}`, { state: charData })
   }
 
+
   return (
     <>
       <h1> Search Character Page </h1>
       <Form handleSearch={handleSearch} character={chars} />
     </>
-    
   )
 }
 

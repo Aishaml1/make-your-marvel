@@ -8,7 +8,7 @@ const UserCard = (props) => {
       <img src={props.profileData.avatar} alt="user animal avatar" />
       <div className="user-info">
         <h4>
-          I am {props.profileData.name}
+          {props.profileData.name}'s Team Assemble! 
         </h4>
       </div>
     </div>
