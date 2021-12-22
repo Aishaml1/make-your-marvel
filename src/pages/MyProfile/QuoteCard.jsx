@@ -2,10 +2,11 @@ import React from "react";
 import { Link } from 'react-router-dom'
 
 const QuoteCard = (props) => {
+  console.log("quotecard data", props)
 
   return (
     <>
-    <p>{props.randomQuote?.content}</p>
+    <p>{props.randomQuote.content}</p>
     {props.randomQuote && 
     <Link 
       to="/edit"

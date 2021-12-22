@@ -78,6 +78,7 @@ const updateQuote = async (req, res) => {
     const character = await Character.findById(req.params.id)
     const idx = character.quotes.findIndex((quote) => quote._id.equals(req.params.quoteId))
     character.quotes[idx].content = req.body.content
+    console.log("content here", req.body.content)
     await character.save()
     return res.status(200).json(character)
   } catch (err) {
