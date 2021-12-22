@@ -6,7 +6,7 @@ const QuoteCard = (props) => {
 
   return (
     <>
-    <p>{props.randomQuote.content}</p>
+    <p>{props.randomQuote?.content}</p>
     {props.randomQuote && 
     <Link 
       to="/edit"
