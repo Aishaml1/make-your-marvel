@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState} from "react";
+import { useNavigate }
 import CharCard from "./CharCard"
 import { getMyProfile } from "../../services/profileService";
 import UserCard from "../../components/misc/UserCard"
@@ -10,7 +11,7 @@ const MyProfile = () => {
   const [character2, setCharacter2] = useState()
   const [character3, setCharacter3] = useState()
   const [profileData, setProfileData] = useState()
-
+ const [deleteChar, setDeleteChar] = useState()
   const updateCharacter = (updatedChar, id) => {
 
     if (id === character1._id) {
@@ -22,19 +23,21 @@ const MyProfile = () => {
     }
   }
 
-
-  const handleDeleteCharacter = async (characterId) => {
-    await characterService.deleteCharacter(characterId)
-    if (characterId === character1._id) {
-      setCharacter1(character1.filter((characters1) => characters1._id !== characterId))
-    } else if (characterId === character2._id) {
-      setCharacter2(character2.filter((characters2) => characters2._id !== characterId))
-    } else {
-      setCharacter3(character3.filter((characters3) => characters3._id !== characterId))
-    }
-  }
-
-
+const handleDeleteCharacter = async (characterId)=> {
+  await characterService.deleteCharacter(characterId)
+  navigate('/')
+}
+  // const handleDeleteCharacter = async (characterId) => {
+  //   console.log("this is characterId",characterId)
+  //   await characterService.deleteCharacter(characterId)
+  //   if (characterId === character1._id) {
+  //     setCharacter1(character1.filter((characters1) => characters1._id !== characterId))
+  //   } else if (characterId === character2._id) {
+  //     setCharacter2(character2.filter((characters2) => characters2._id !== characterId))
+  //   } else {
+  //     setCharacter3(character3.filter((characters3) => characters3._id !== characterId))
+  //   }
+  // }
 
 
   useEffect(() => {
