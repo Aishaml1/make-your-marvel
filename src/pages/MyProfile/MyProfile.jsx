@@ -1,5 +1,4 @@
 import React, { useEffect, useState} from "react";
-import { useNavigate }
 import CharCard from "./CharCard"
 import { getMyProfile } from "../../services/profileService";
 import UserCard from "../../components/misc/UserCard"
@@ -11,7 +10,8 @@ const MyProfile = () => {
   const [character2, setCharacter2] = useState()
   const [character3, setCharacter3] = useState()
   const [profileData, setProfileData] = useState()
- const [deleteChar, setDeleteChar] = useState()
+
+
   const updateCharacter = (updatedChar, id) => {
 
     if (id === character1._id) {
@@ -25,7 +25,6 @@ const MyProfile = () => {
 
 const handleDeleteCharacter = async (characterId)=> {
   await characterService.deleteCharacter(characterId)
-  navigate('/')
 }
   // const handleDeleteCharacter = async (characterId) => {
   //   console.log("this is characterId",characterId)

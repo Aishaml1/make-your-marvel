@@ -21,7 +21,7 @@ const CharCard = ({character, updateCharacter, handleDeleteCharacter}) => {
   }
 
 
-  const randomQuote = character.quotes[Math.floor(Math.random()*character.quotes.length)]
+  // const randomQuote = character.quotes[Math.floor(Math.random()*character.quotes.length)]
 
   return (
     <div>
@@ -40,9 +40,9 @@ const CharCard = ({character, updateCharacter, handleDeleteCharacter}) => {
         <button type="submit">Add Quote</button>
       </form>
       <button onClick={()=> handleDeleteCharacter(character._id)}>Delete</button>
-        <QuoteCard
+        {/* <QuoteCard
         randomQuote={randomQuote}
-        />
+        /> */}
         
     </div>
   )

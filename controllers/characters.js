@@ -65,7 +65,9 @@ const deleteQuote = async (req, res) => {
 const deleteCharacter = async (req, res) => {
   try {
     await Character.findByIdAndDelete(req.params.id)
+    console.log("delete character", req.params.id)
     const profile = await Profile.findById(req.user.profile)
+    console.log("profile", req.user.profile)
     profile.team.remove({ _id: req.params.id })
     await profile.save()
     return res.status(204).end()
