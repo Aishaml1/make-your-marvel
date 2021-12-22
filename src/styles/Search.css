@@ -1,0 +1,25 @@
+
+.searchpage {
+    display: flex;
+    margin: auto;
+    width: 10%;
+    padding: 140px;
+}
+.searchlabel {
+    display: flex;
+    display: flex;
+    margin: auto;
+    width: 10%;
+}
+.search {
+    display: flex;
+    display: flex;
+    margin: auto;
+    width: 10%;
+}
+.searchbtn {
+    display: flex;
+    display: flex;
+    margin: auto;
+    width: 10%;
+}

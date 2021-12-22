@@ -2,24 +2,24 @@ import { useState, useRef, useEffect } from "react"
 import { Link, useLocation } from 'react-router-dom'
 
 function EditQuote(props) {
-  const location = useLocation()
-  const formElement = useRef()
+	const location = useLocation()
+	const formElement = useRef()
 
-  const [formData, setFormData] = useState(location.state.quote)
+	const [formData, setFormData] = useState(location.state.quote)
 
-  const [validForm, setValidForm] = useState(true)
+	const [validForm, setValidForm] = useState(true)
 
-  const handleChange = evt => {
+	const handleChange = evt => {
 		setFormData({ ...formData, [evt.target.name]: evt.target.value })
 	}
 
-  useEffect(() => {
+	useEffect(() => {
 		formElement.current.checkValidity() ? setValidForm(true) : setValidForm(false)
 	}, [formData])
 
-  const handleSubmit = evt => {
+	const handleSubmit = evt => {
 		evt.preventDefault()
-    props.handleUpdateQuote(formData)
+		props.handleUpdateQuote(formData)
 	}
 
 	return (
@@ -30,26 +30,26 @@ function EditQuote(props) {
 					<label htmlFor="name-input" className="form-label">
 						Quote
 					</label>
-					<input 
+					<input
 						type="text"
 						className="form-control"
 						id="name-input"
 						name="name"
-            value={formData.name}
+						value={formData.name}
 						required
-            onChange={handleChange}
+						onChange={handleChange}
 					/>
 				</div>
 				<div className="d-grid mb-3">
 					<button
 						type="submit"
 						className="btn btn-primary btn-fluid"
-            disabled={!validForm}
+						disabled={!validForm}
 					>
 						Save Quote
 					</button>
 				</div>
-        <div className="d-grid">
+				<div className="d-grid">
 					<Link
 						to="/"
 						className="btn btn-danger btn-fluid"

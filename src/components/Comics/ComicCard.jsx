@@ -4,8 +4,6 @@ import { addAComic } from '../../services/comicsService'
 
 
 const ComicCard = ({ comic }) => {
-    console.log(comic, 'this is comic')
-
     const location = useLocation()
     const navigate = useNavigate()
     const [com, setCom] = useState(location.state)
@@ -15,7 +13,7 @@ const ComicCard = ({ comic }) => {
         try {
             const addingComic = await addAComic(comic)
             console.log(addingComic, 'adding one comic')
-            navigate('/profile')
+            // navigate('/')
         } catch (error) {
             throw error
         }
