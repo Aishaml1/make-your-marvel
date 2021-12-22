@@ -3,7 +3,7 @@ import { useState, useEffect} from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { addCharacter } from '../../services/characterService'
 import { getAllComics } from '../../services/comicsService'
-import ComicCard from "../../Comics/ComicCard"
+import ComicCard from "../Comics/ComicCard"
 
 const CharacterCard = () => {
   const location = useLocation()

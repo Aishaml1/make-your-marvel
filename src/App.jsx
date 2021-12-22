@@ -7,7 +7,7 @@ import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import MyProfile from './pages/MyProfile/MyProfile'
 import * as authService from './services/authService'
-import ComicCard from './Comics/ComicCard'
+import ComicCard from './components/Comics/ComicCard'
 
 
 //Components 
