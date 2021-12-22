@@ -3,6 +3,7 @@ import { deleteCharacter, getCharacter } from "../../services/characterService";
 import Form from "./Form"
 import { useNavigate } from "react-router-dom"
 import CharCard from '../../pages/MyProfile/CharCard'
+import '../../styles/Search.css'
 
 function CharacterList() {
   const [chars, setChars] = useState();
@@ -16,8 +17,9 @@ function CharacterList() {
 
   return (
     <>
-      <h1> Search Character Page </h1>
+      <h1 className='searchpage'> Search </h1>
       <Form handleSearch={handleSearch} character={chars} />
+      
     </>
   )
 }

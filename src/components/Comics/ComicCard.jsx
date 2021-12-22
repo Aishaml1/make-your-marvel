@@ -1,13 +1,10 @@
 import { useState } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useLocation} from 'react-router-dom'
 import { addAComic } from '../../services/comicsService'
 
 
 const ComicCard = ({ comic }) => {
-    console.log(comic, 'this is comic')
-
     const location = useLocation()
-    const navigate = useNavigate()
     const [com, setCom] = useState(location.state)
 
     const addComic = async (e) => {
@@ -15,7 +12,6 @@ const ComicCard = ({ comic }) => {
         try {
             const addingComic = await addAComic(comic)
             console.log(addingComic, 'adding one comic')
-            navigate('/profile')
         } catch (error) {
             throw error
         }

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import '../../styles/Search.css';
 
 function Form(props) {
   console.log("props in Form", props);
@@ -19,15 +20,15 @@ function Form(props) {
     return (
     <>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="charName">Search:</label>
-        <input
+        <label  className='searchlabel' htmlFor="charName">Search:</label>
+        <input className='search'
           id="charName"
           type="text"
           value={charName}
           placeholder="marvel character"
           onChange={handleChange}
         />
-        <input type="submit" value="Submit" />
+        <input className='searchbtn' type="submit" value="Submit" />
       </form>
     </>
   );
