@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import CharCard from "./CharCard"
 import { getMyProfile } from "../../services/profileService";
 import UserCard  from "../../components/misc/UserCard"
+import QuoteCard from "./QuoteCard";
 
 const MyProfile = () => {
   const [character1, setCharacter1] = useState()
