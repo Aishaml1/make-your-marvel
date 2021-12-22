@@ -61,3 +61,15 @@ export const deleteCharacter = async (characterId) => {
     throw error
   }
 }
+
+export const editQuote = async (characterId, quoteId, content) => {
+  try {
+    await fetch(`${BASE_URL}/${characterId}/quotes/${quoteId}`, {
+      method: "PUT",
+      headers: {"content-type": "application/json"},
+      body: JSON.stringify(content)
+    })
+  } catch (error) {
+    throw error
+  }
+} 
