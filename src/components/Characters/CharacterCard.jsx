@@ -42,7 +42,7 @@ const CharacterCard = () => {
       <h4>Description: {hero.description}</h4>
       <button type='submit' onClick={(e) => addToTeam(e, hero) }>Add to Team</button>
       <button onClick={() => navigate(-1)}>Cancel</button>
-      {comics.map((comic)=>(
+      {comics?.map((comic)=>(
         <ComicCard 
         comic={comic}
         key={comic.id}
