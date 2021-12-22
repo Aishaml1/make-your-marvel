@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { addQuoteToProfile, editQuote } from "../../services/characterService";
+import { addQuoteToProfile } from "../../services/characterService";
 import QuoteCard from "./QuoteCard";
 
 const CharCard = ({character, updateCharacter}) => {
@@ -18,18 +18,6 @@ const CharCard = ({character, updateCharacter}) => {
     } catch (error) {
       throw error
     }
-  }
-
-  const handleUpdateQuote = async(e, id) => {
-    e.preventDefault()
-    try {
-      const updatedQuote = await editQuote(id, formData)
-      updateCharacter(updatedChar, id)
-      setContent("")
-    } catch (error) {
-      throw error
-    }
-  }
   }
 
   const randomQuote = character.quotes[Math.floor(Math.random()*character.quotes.length)]
