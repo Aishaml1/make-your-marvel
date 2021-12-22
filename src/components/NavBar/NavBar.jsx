@@ -27,17 +27,18 @@ const NavBar = ({ user, handleLogout }) => {
       <Nav.Link><Link to="/characterSearch">Search</Link></Nav.Link>
       <Nav.Link><Link to="/profile">My Profile</Link></Nav.Link>
       <Nav.Link><Link to="/profiles">All Profile</Link></Nav.Link>
-      <Nav.Link><Link to="/profile">My Profile</Link></Nav.Link> 
+      <Nav.Link><Link to="" onClick={handleLogout}>LOG OUT</Link></Nav.Link>
     </Nav>
       </Navbar>
     </>
         :
-        <nav>
-          <ul className='loginSignup' >
-            <li><Link to="/login" className='navbar'>Log In</Link></li>
+        <Navbar>
+          <Nav  className='loginSignup'>
+          <Nav.Link><Link to="/login">Log in</Link></Nav.Link> 
             <li><Link to="/signup" className='navbar'>Sign Up</Link></li>
-          </ul>
-        </nav>
+          
+          </Nav>
+        </Navbar>
       }
     </>
     

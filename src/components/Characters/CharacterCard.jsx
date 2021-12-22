@@ -19,7 +19,7 @@ const CharacterCard = () => {
     try {
       const team = await addCharacter(hero)
       console.log("this is team", team)
-      // navigate('/profile')
+      navigate('/profile')
     } catch (error) {
       throw error
     }
