@@ -21,7 +21,7 @@ const CharCard = ({character, updateCharacter}) => {
   }
 
   const randomQuote = character.quotes[Math.floor(Math.random()*character.quotes.length)]
-
+ 
   return (
     <div>
       <form onSubmit={(e) => addQuote(e, character._id)}>
