@@ -32,6 +32,7 @@ const MyProfile = () => {
     getProfile()
   }, [])
 
+
   return (
     <>
       <h1>This is My Profile</h1>

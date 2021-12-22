@@ -49,5 +49,15 @@ export const addQuoteToProfile = async (id, content) => {
     throw error
   }
 }
-  
 
+
+export const deleteCharacter = async (characterId) => {
+  try {
+    await fetch(`${BASE_URL}${characterId}`, {
+      method: 'DELETE',
+      headers: { 'Authorization': 'Bearer ' + tokenService.getToken() }
+    })
+  } catch (error) {
+    throw error
+  }
+}
