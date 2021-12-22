@@ -1,21 +1,27 @@
+.leftcontainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 
-.leftcontainer{
+.container{
+  color: rgb(211, 0, 0);
+  background-color: rgba(20, 2, 2, 0);
+}
+
+/* .leftcontainer{
 position:relative;
 bottom:22rem;
 margin-left: 90px;
 z-index: -1;
-}
+} */
 
-.container{
-  color:rgb(211, 0, 0);
-  background-color: rgba(20, 2, 2, 0);
-}
-.signup{
+/* .signup{
   margin-left: 70rem;
-}
+} */
 
-.bubble {
+/* .bubble {
   color: red;
   border-radius: 50%;
   height: 100px;
@@ -25,10 +31,9 @@ z-index: -1;
   position: relative;
   left: 30rem;
   bottom: 5rem;
-}
+} */
 
-
-.bubble::after{
+/* .bubble::after{
   content: " ";
   position: absolute;
   width: 50px;
@@ -38,8 +43,9 @@ z-index: -1;
   border-radius: 50px;
   border-bottom: 8px solid rgb(255, 252, 252);
   transform: rotate(-55deg);
-}
-.bubble{
+} */
+
+/* .bubble{
   -webkit-animation: fadeIn 1s;
   animation: fadeIn 1s;
 }
@@ -52,4 +58,4 @@ z-index: -1;
 @keyframes fadeIn {
   from {opacity: 0;}
   to {opacity:1 ;}
-}
+} */
