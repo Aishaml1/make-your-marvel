@@ -21,8 +21,8 @@ const Signup = props => {
       </div>
       <div className={styles.bubble} ><p className={styles.speech}>{message} </p></div>
       <div className={styles.leftcontainer}>
-        <Animation
-          animData={ironMan} />
+        {/* <Animation
+          animData={ironMan} /> */}
       </div>
       <div>
       </div>

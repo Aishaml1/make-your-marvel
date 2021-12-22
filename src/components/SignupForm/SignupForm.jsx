@@ -4,6 +4,8 @@ import styles from './SignupForm.module.css'
 import * as authService from '../../services/authService'
 import AvatarSelection from '../../pages/Signup/AvatarSelection'
 import hulk from '../../assets/avatars/hulk.png'
+import Animation from '../../components/misc/Animation'
+import ironMan from '../../assets/animation/IronMan.json'
 
 const SignupForm = props => {
   const navigate = useNavigate()
@@ -49,6 +51,8 @@ const SignupForm = props => {
 
   return (
     <div className="signup-page">
+      <Animation
+        animData={ironMan} />
     {popup &&
       <AvatarSelection
         formData={formData}
