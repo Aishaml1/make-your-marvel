@@ -30,10 +30,9 @@ app.use('/api/auth', authRouter)
 
 app.get('/*', function (req, res) {
   res.sendFile(
-    path.dirname(fileURLToPath(import.meta.url), 'build', 'index.html')
+    path.join(path.dirname(fileURLToPath(import.meta.url)), 'build', 'index.html')
   )
 })
-
 const port = process.env.PORT || 3001
 
 app.listen(port, () => {

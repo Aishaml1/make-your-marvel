@@ -63,6 +63,7 @@ export const deleteCharacter = async (characterId) => {
 }
 
 export const editQuote = async (characterId, quoteId, content) => {
+  console.log("character id", characterId)
   try {
     await fetch(`${BASE_URL}/${characterId}/quotes/${quoteId}`, {
       method: "PUT",

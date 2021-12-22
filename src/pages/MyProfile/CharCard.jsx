@@ -46,6 +46,7 @@ const CharCard = ({character, updateCharacter, handleDeleteCharacter}) => {
       </form>
       <button onClick={()=> handleDeleteCharacter(character._id)}>Delete</button>
         <QuoteCard
+        characterId={character._id}
         randomQuote={randomQuote}
         />
         

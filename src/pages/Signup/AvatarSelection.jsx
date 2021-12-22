@@ -5,6 +5,9 @@ import '../../styles/AvatarSelection.css'
 
 import hulk from '../../assets/avatars/hulk.png'
 import ironMan from '../../assets/avatars/ironman.png'
+import gamora from '../../assets/avatars/gamora.png'
+import thor from '../../assets/avatars/thor.png'
+
 
 const AvatarSelection = (props) => {
 
@@ -19,7 +22,9 @@ const AvatarSelection = (props) => {
         <div className="bottom-ui">
           <select onChange={(e) => props.handleChange(e)} name="avatar" value={props.formData.avatar}>
             <option value={hulk}>Hulk</option>
-            <option value={ironMan}>ironMan</option>
+            <option value={ironMan}>IronMan</option>
+            <option value={thor}>Thor</option>
+            <option value={gamora}>Gamora</option>
           </select>
           <button onClick={props.handlePopup} type="button">Confirm</button>
         </div>
