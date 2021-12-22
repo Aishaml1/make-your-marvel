@@ -13,6 +13,7 @@ import ComicCard from './components/Comics/ComicCard'
 //Components 
 import CharacterList from './components/Characters/CharacterList'
 import CharacterCard from './components/Characters/CharacterCard'
+import EditQuote from './pages/MyProfile/EditQuote'
 
 const App = () => {
 
@@ -53,6 +54,10 @@ const App = () => {
         <Route
           path="/profile"
           element={user ? <MyProfile user={user}/> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/edit"
+          element={user ? <EditQuote user={user}/> : <Navigate to="/login" />}
         />
       <Route
           path="/charactersearch"
