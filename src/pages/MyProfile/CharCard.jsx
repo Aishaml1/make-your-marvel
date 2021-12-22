@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { addQuoteToProfile } from "../../services/characterService";
 
-const CharCard = ({character, updateCharacter }) => {
+const CharCard = ({character, updateCharacter}) => {
   const [content, setContent] = useState("")
 
   const formData = {
