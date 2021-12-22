@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
 import CharCard from "./CharCard"
 import { getMyProfile } from "../../services/profileService";
-import UserCard  from "../../components/misc/UserCard"
-import QuoteCard from "./QuoteCard";
+import UserCard from "../../components/misc/UserCard"
+import * as characterService from '../../services/characterService'
+
+
 
 const MyProfile = () => {
   const [character1, setCharacter1] = useState()
   const [character2, setCharacter2] = useState()
   const [character3, setCharacter3] = useState()
   const [profileData, setProfileData] = useState()
-  
+
+
   const updateCharacter = (updatedChar, id) => {
 
     if (id === character1._id) {
@@ -18,11 +21,27 @@ const MyProfile = () => {
       setCharacter2(updatedChar)
     } else {
       setCharacter3(updatedChar)
-    }  
+    }
   }
-  
+
+
+  const handleDeleteCharacter = async (characterId) => {
+    console.log("this is characterId", characterId)
+    await characterService.deleteCharacter(characterId)
+    if (character1 && characterId === character1._id) {
+      setCharacter1(null)
+    } else if (character2 && characterId === character2._id) {
+      setCharacter2(null)
+    } else if (character3 && characterId === character3._id) {
+      setCharacter3(null)
+    } else {
+      console.log("no character")
+    }
+  }
+
+
   useEffect(() => {
-    const getProfile = async() => {
+    const getProfile = async () => {
       const data = await getMyProfile()
       console.log("this is data in profile", data)
       setCharacter1(data.team[0])
@@ -36,24 +55,26 @@ const MyProfile = () => {
 
   return (
     <>
-      { profileData && 
-      <UserCard profileData={profileData} />      
+      {profileData &&
+        <UserCard profileData={profileData} />
       }
 
-      { character1 &&
-      <CharCard character={character1} updateCharacter={updateCharacter} />
+      {character1 &&
+        <CharCard character={character1} updateCharacter={updateCharacter} handleDeleteCharacter={handleDeleteCharacter} />
       }
 
-      { character2 &&
-      <CharCard character={character2} updateCharacter={updateCharacter} />
-      }
-      
-      { character3 &&
-      <CharCard character={character3} updateCharacter={updateCharacter} />
+      {character2 &&
+        <CharCard character={character2} updateCharacter={updateCharacter} handleDeleteCharacter={handleDeleteCharacter} />
       }
 
-    </>    
+      {character3 &&
+        <CharCard character={character3} updateCharacter={updateCharacter} handleDeleteCharacter={handleDeleteCharacter} />
+      }
+
+    </>
   )
 }
 
 export default MyProfile
+
+

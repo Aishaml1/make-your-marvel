@@ -15,7 +15,6 @@ const addToTeam = async (req, res) => {
   try {
     req.body.added_by = req.user.profile
     const newChar = await new Character(req.body)
-    console.log("chracter data here", req.body)
     await newChar.save()
     await Profile.updateOne(
       { _id: req.user.profile },
@@ -76,11 +75,11 @@ const deleteCharacter = async (req, res) => {
 
 const updateQuote = async (req, res) => {
   try {
-    const updatedQuote = await Character.findByIdAndUpdate(
+    const updatedQuote = await Character.findById(
       req.params.id,
       req.body.content,
       { new: true }
-    )
+    ) 
     return res.status(200).json(updatedQuote)
   } catch (err) {
     return res.status(500).json(err)
