@@ -1,9 +1,10 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import CharCard from "./CharCard"
 import { getMyProfile } from "../../services/profileService";
 import UserCard from "../../components/misc/UserCard"
 import * as characterService from '../../services/characterService'
-// import QuoteCard from "./QuoteCard";
+
+
 
 const MyProfile = () => {
   const [character1, setCharacter1] = useState()
@@ -23,20 +24,20 @@ const MyProfile = () => {
     }
   }
 
-const handleDeleteCharacter = async (characterId)=> {
-  await characterService.deleteCharacter(characterId)
-}
-  // const handleDeleteCharacter = async (characterId) => {
-  //   console.log("this is characterId",characterId)
-  //   await characterService.deleteCharacter(characterId)
-  //   if (characterId === character1._id) {
-  //     setCharacter1(character1.filter((characters1) => characters1._id !== characterId))
-  //   } else if (characterId === character2._id) {
-  //     setCharacter2(character2.filter((characters2) => characters2._id !== characterId))
-  //   } else {
-  //     setCharacter3(character3.filter((characters3) => characters3._id !== characterId))
-  //   }
-  // }
+
+  const handleDeleteCharacter = async (characterId) => {
+    console.log("this is characterId", characterId)
+    await characterService.deleteCharacter(characterId)
+    if (character1 && characterId === character1._id) {
+      setCharacter1(null)
+    } else if (character2 && characterId === character2._id) {
+      setCharacter2(null)
+    } else if (character3 && characterId === character3._id) {
+      setCharacter3(null)
+    } else {
+      console.log("no character")
+    }
+  }
 
 
   useEffect(() => {
@@ -59,7 +60,7 @@ const handleDeleteCharacter = async (characterId)=> {
       }
 
       {character1 &&
-        <CharCard character={character1} updateCharacter={updateCharacter} handleDeleteCharacter={handleDeleteCharacter}/>
+        <CharCard character={character1} updateCharacter={updateCharacter} handleDeleteCharacter={handleDeleteCharacter} />
       }
 
       {character2 &&
@@ -67,7 +68,7 @@ const handleDeleteCharacter = async (characterId)=> {
       }
 
       {character3 &&
-        <CharCard character={character3} updateCharacter={updateCharacter} handleDeleteCharacter={handleDeleteCharacter}/>
+        <CharCard character={character3} updateCharacter={updateCharacter} handleDeleteCharacter={handleDeleteCharacter} />
       }
 
     </>
