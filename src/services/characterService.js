@@ -1,6 +1,6 @@
 import * as tokenService from "./tokenService"
 
-const BASE_URL = '/api/characters'
+const BASE_URL = '/api/characters/'
 
 
 export const getCharacter = async (name) => {

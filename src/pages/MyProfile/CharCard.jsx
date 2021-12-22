@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { addQuoteToProfile } from "../../services/characterService";
 import QuoteCard from "./QuoteCard";
 
-const CharCard = ({ character, updateCharacter }) => {
-  const [content, setContent] = useState("");
+const CharCard = ({character, updateCharacter, handleDeleteCharacter}) => {
+  const [content, setContent] = useState("")
 
   const formData = {
     content: content,
@@ -44,12 +44,11 @@ const CharCard = ({ character, updateCharacter }) => {
         />
         <button type="submit">Add Quote</button>
       </form>
-
-      <QuoteCard 
-      characterId={character._id} 
-      randomQuote={randomQuote} 
-      />
-      
+      <button onClick={()=> handleDeleteCharacter(character._id)}>Delete</button>
+        {/* <QuoteCard
+        randomQuote={randomQuote}
+        /> */}
+        
     </div>
   );
 };
