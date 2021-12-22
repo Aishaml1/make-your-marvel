@@ -15,7 +15,7 @@ z-index: -1;
   margin-left: 70rem;
 }
 
-.bubble {
+/* .bubble {
   color: red;
   border-radius: 50%;
   height: 100px;
@@ -25,10 +25,9 @@ z-index: -1;
   position: relative;
   left: 30rem;
   bottom: 5rem;
-}
+} */
 
-
-.bubble::after{
+/* .bubble::after{
   content: " ";
   position: absolute;
   width: 50px;
@@ -38,8 +37,9 @@ z-index: -1;
   border-radius: 50px;
   border-bottom: 8px solid rgb(255, 252, 252);
   transform: rotate(-55deg);
-}
-.bubble{
+} */
+
+/* .bubble{
   -webkit-animation: fadeIn 1s;
   animation: fadeIn 1s;
 }
@@ -52,4 +52,4 @@ z-index: -1;
 @keyframes fadeIn {
   from {opacity: 0;}
   to {opacity:1 ;}
-}
+} */
