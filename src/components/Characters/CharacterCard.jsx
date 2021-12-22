@@ -26,7 +26,6 @@ const CharacterCard = () => {
   }
 
 
-
     useEffect(() => {
     const fetchAllComics = async () => {
       const comicsData = await getAllComics(hero.id);
