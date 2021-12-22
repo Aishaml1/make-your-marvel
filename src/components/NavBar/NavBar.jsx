@@ -32,11 +32,10 @@ const NavBar = ({ user, handleLogout }) => {
       </Navbar>
     </>
         :
-        <Navbar>
+        <Navbar bg="dark" variant="dark">
           <Nav  className='loginSignup'>
           <Nav.Link><Link to="/login">Log in</Link></Nav.Link> 
             <li><Link to="/signup" className='navbar'>Sign Up</Link></li>
-          
           </Nav>
         </Navbar>
       }
