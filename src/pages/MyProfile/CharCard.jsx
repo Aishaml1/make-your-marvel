@@ -45,9 +45,9 @@ const CharCard = ({character, updateCharacter, handleDeleteCharacter}) => {
         <button type="submit">Add Quote</button>
       </form>
       <button onClick={()=> handleDeleteCharacter(character._id)}>Delete</button>
-        {/* <QuoteCard
+        <QuoteCard
         randomQuote={randomQuote}
-        /> */}
+        />
         
     </div>
   );
