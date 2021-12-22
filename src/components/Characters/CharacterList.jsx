@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { getCharacter } from "../../services/characterService";
 import Form from "./Form"
 import { useNavigate } from "react-router-dom"
@@ -8,13 +8,10 @@ function CharacterList() {
   const [chars, setChars] = useState();
   const navigate = useNavigate()
 
-
   const handleSearch = async (name) => {
     const charData = await getCharacter(name)
     navigate(`/character/${charData.id}`, { state: charData })
   }
-
-
 
   return (
     <>
@@ -24,9 +21,5 @@ function CharacterList() {
     
   )
 }
-
-
-// {chars.map((character) => (
-//   <CharacterCard character={character} key={character.id} />
 
 export default CharacterList;
