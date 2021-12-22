@@ -66,7 +66,9 @@ export const editQuote = async (characterId, quoteId, content) => {
   try {
     await fetch(`${BASE_URL}/${characterId}/quotes/${quoteId}`, {
       method: "PUT",
-      headers: {"content-type": "application/json"},
+      headers: {
+        'Authorization': 'Bearer ' + tokenService.getToken(),
+        "content-type": "application/json"},
       body: JSON.stringify(content)
     })
   } catch (error) {

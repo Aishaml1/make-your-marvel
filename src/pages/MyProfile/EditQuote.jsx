@@ -1,62 +1,56 @@
-import { useState, useRef, useEffect } from "react"
-import { Link, useLocation } from 'react-router-dom'
+import { useState, useEffect } from "react"
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { editQuote } from "../../services/characterService"
 
 function EditQuote(props) {
+  const navigate = useNavigate()
   const location = useLocation()
-  const formElement = useRef()
 
-  const [formData, setFormData] = useState(location.state.quote)
-
-  const [validForm, setValidForm] = useState(true)
+  console.log("location.state", location.state)
+  const [formData, setFormData] = useState("")
 
   const handleChange = evt => {
-		setFormData({ ...formData, [evt.target.name]: evt.target.value })
+		setFormData(evt.target.value)
 	}
+
+  const handleUpdateQuote = async(e) => {
+    e.preventDefault()
+    try {
+      const formatted = {
+        content: formData
+      }
+      await editQuote(location.state.characterId, location.state.quoteId, formatted) 
+      navigate("/profile")
+    } catch (error) {
+      throw error
+    }
+  }
 
   useEffect(() => {
-		formElement.current.checkValidity() ? setValidForm(true) : setValidForm(false)
-	}, [formData])
-
-  const handleSubmit = evt => {
-		evt.preventDefault()
-    props.handleUpdateQuote(formData)
-	}
+    console.log("this is firing off")
+		setFormData(location.state.content)
+	}, [])
 
 	return (
 		<>
 			<h1>Edit Quote</h1>
-			<form autoComplete="off" ref={formElement} onSubmit={handleSubmit}>
-				<div className="form-group mb-3">
-					<label htmlFor="name-input" className="form-label">
-						Quote
-					</label>
+			<form autoComplete="off" onSubmit={handleUpdateQuote}>
 					<input 
 						type="text"
 						className="form-control"
 						id="name-input"
 						name="name"
-            value={formData.name}
+            value={formData}
 						required
-            onChange={handleChange}
+            onChange={(e) => handleChange(e)}
 					/>
-				</div>
-				<div className="d-grid mb-3">
 					<button
 						type="submit"
-						className="btn btn-primary btn-fluid"
-            disabled={!validForm}
+          
 					>
-						Save Quote
+						Update Quote
 					</button>
-				</div>
-        <div className="d-grid">
-					<Link
-						to="/"
-						className="btn btn-danger btn-fluid"
-					>
-						Cancel
-					</Link>
-				</div>
+					<Link to="/">Cancel</Link>
 			</form>
 		</>
 	)
