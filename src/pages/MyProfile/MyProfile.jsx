@@ -72,15 +72,19 @@ import * as characterService from '../../services/characterService'
       {character3 &&
         <CharCard character={character3} updateCharacter={updateCharacter} handleDeleteCharacter={handleDeleteCharacter} />
       }
-      <div>
-        <h3>My Comics</h3>
-        {comics.map((comic)=>(
-          <div key={comic._id}>
+        <h1>Comics </h1>
+      {comics.length ? 
+        <>
+          {comics.map(comic=>
+            <div key={comic._id}>
             <img src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} alt='comics'/>
             <p>{comic.title}</p>
-          </div>
-        ))}
-      </div>
+            </div>
+          )}
+        </>
+      :
+        <h2>No comics in your collection</h2>
+      }
     </>
   )
 }
