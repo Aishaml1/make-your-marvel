@@ -16,12 +16,17 @@ const SignupForm = (props) => {
     avatar: hulk,
   });
 
+  const [message, setMessage] = useState([''])
+  const updateMessage = msg => {
+    setMessage(msg)
+  }
+
   const handlePopup = () => {
     setPopup(!popup);
   };
 
   const handleChange = (e) => {
-    props.updateMessage("");
+    updateMessage("");
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -35,7 +40,7 @@ const SignupForm = (props) => {
       props.handleSignupOrLogin();
       navigate("/");
     } catch (err) {
-      props.updateMessage(err.message);
+      updateMessage(err.message);
     }
   };
 
@@ -57,7 +62,7 @@ const SignupForm = (props) => {
 
     <div className="signup-page">
       
-      
+      <p>{message}</p>
       
       <form
         autoComplete="off"
