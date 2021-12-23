@@ -18,19 +18,21 @@ function Form(props) {
 
   
     return (
-    <>
+      <main className="main">
+      <>
       <form onSubmit={handleSubmit}>
-        <label  className='searchlabel' htmlFor="charName">Search:</label>
+        <div className='search-container'>
+        <label  className='searchlabel' htmlFor="charName"></label>
         <input className='search'
           id="charName"
           type="text"
           value={charName}
           placeholder="marvel character"
           onChange={handleChange}
-        />
+        /></div>
         <input className='searchbtn' type="submit" value="Submit" />
       </form>
-    </>
+    </> </main>
   );
 }
 
