@@ -15,7 +15,9 @@ const Signup = (props) => {
     <main>
       <h1 className={styles.signup} >Sign Up</h1>
         <div className={styles.container} >
-            <Animation animData={ironMan} />
+            <Animation   className={styles.iron}
+            
+            animData={ironMan} />
             <SignupForm {...props}
               updateMessage={updateMessage} />
         </div>

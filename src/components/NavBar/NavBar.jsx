@@ -22,8 +22,8 @@ const NavBar = ({ user, handleLogout }) => {
               className="d-inline-block align-top"
             />
             </Link> Hey, {user.name} !! </Navbar.Brand>
-        </Container>
-        <Nav className="navLinks">
+        </Container >
+        <Nav className="navLinks" style={{color: "red"}} >
       <Nav.Link><Link to="/characterSearch" className="navLink">Search</Link></Nav.Link>
       <Nav.Link><Link to="/profile" className="navLink" >My Profile</Link></Nav.Link>
       <Nav.Link><Link to="" onClick={handleLogout} className="navLink">LOG OUT</Link></Nav.Link>
@@ -44,9 +44,9 @@ const NavBar = ({ user, handleLogout }) => {
             />
             </Link> Welcome </Navbar.Brand>
         </Container>
-          <Nav  className='loginSignup'>
-          <Nav.Link><Link to="/login">Log in</Link></Nav.Link> 
-            <li><Link to="/signup" className='navbar'>Sign Up</Link></li>
+          <Nav  className="navLinks" >
+          <Nav.Link><Link to="/login" className="navLink" >Log in</Link></Nav.Link> 
+          <Nav.Link><Link to="/signup" className="navLink" >Sign up</Link></Nav.Link> 
           </Nav>
         </Navbar>
       }
