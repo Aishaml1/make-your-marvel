@@ -7,19 +7,22 @@ const CharCard = ({ character, updateCharacter, handleDeleteCharacter }) => {
     character.quotes[Math.floor(Math.random() * character.quotes.length)];
 
   return (
-    <div>
-      <p>{character.name}</p>
-      <img
+    <div className='charCard'>
+      <p className='charName'>{character.name}</p>
+      <img className='charImg'
         src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
         alt=""
         height="300px"
         width="300px"
       ></img>
-      <AddQuote character={character} updateCharacter={updateCharacter} />
-      <button onClick={() => handleDeleteCharacter(character._id)}>
+      <AddQuote className='charAddQuote' character={character} updateCharacter={updateCharacter} />
+      <button className='charbtn' onClick={() => handleDeleteCharacter(character._id)}>
         Delete Character
       </button>
-      <QuoteCard characterId={character._id} randomQuote={randomQuote} />
+      <div>
+      <QuoteCard className='charQuote' characterId={character._id} randomQuote={randomQuote} /
+      ></div>
+      
     </div>
   );
 };

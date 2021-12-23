@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 import {Navbar, Nav, Container} from 'react-bootstrap';
-import "bootstrap/dist/css/bootstrap.min.css";
 import '../../styles/Nav.css'
 import mymNav from '../../assets/images/mymNav.png'
 
@@ -24,16 +23,27 @@ const NavBar = ({ user, handleLogout }) => {
             />
             </Link> Hey, {user.name} !! </Navbar.Brand>
         </Container>
-        <Nav className="me-auto">
-      <Nav.Link><Link to="/characterSearch">Search</Link></Nav.Link>
-      <Nav.Link><Link to="/profile">My Profile</Link></Nav.Link>
-      <Nav.Link><Link to="/profiles">All Profile</Link></Nav.Link>
-      <Nav.Link><Link to="" onClick={handleLogout}>LOG OUT</Link></Nav.Link>
+        <Nav className="navLinks">
+      <Nav.Link><Link to="/characterSearch" className="navLink">Search</Link></Nav.Link>
+      <Nav.Link><Link to="/profile" className="navLink" >My Profile</Link></Nav.Link>
+      <Nav.Link><Link to="" onClick={handleLogout} className="navLink">LOG OUT</Link></Nav.Link>
     </Nav>
       </Navbar>
     </>
         :
-        <Navbar bg="dark" variant="dark">
+        <Navbar variant="dark" className='color-nav'>
+        <Container>
+          <Navbar.Brand style={{color: "red"}}>
+            <Link to="/">
+            <img 
+              alt=""
+              src={mymNav}
+              width="50px"
+              height="30vh"
+              className="d-inline-block align-top"
+            />
+            </Link> Welcome </Navbar.Brand>
+        </Container>
           <Nav  className='loginSignup'>
           <Nav.Link><Link to="/login">Log in</Link></Nav.Link> 
             <li><Link to="/signup" className='navbar'>Sign Up</Link></li>
