@@ -1,6 +1,7 @@
 import React from "react";
 import QuoteCard from "./QuoteCard";
 import AddQuote from "./AddQuote";
+import '../../styles/CharCard.css'
 
 const CharCard = ({ character, updateCharacter, handleDeleteCharacter }) => {
   const randomQuote =
@@ -19,10 +20,11 @@ const CharCard = ({ character, updateCharacter, handleDeleteCharacter }) => {
       <button className='charbtn' onClick={() => handleDeleteCharacter(character._id)}>
         Delete Character
       </button>
-      <div>
-      <QuoteCard className='charQuote' characterId={character._id} randomQuote={randomQuote} /
-      ></div>
-      
+      <div className='charQuote'>
+      <QuoteCard characterId={character._id} 
+      randomQuote={randomQuote} 
+      /></div>
+
     </div>
   );
 };
