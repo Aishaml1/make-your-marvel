@@ -11,18 +11,18 @@ const NavBar = ({ user, handleLogout }) => {
 
       {user ?
       <>
-      <Navbar bg="dark" variant="dark" className='nav'>
+      <Navbar variant="dark" className='color-nav'>
         <Container>
-          <Navbar.Brand ><Link to="/">
+          <Navbar.Brand style={{color: "red"}}>
+            <Link to="/">
             <img 
               alt=""
               src={mymNav}
               width="50px"
               height="30vh"
               className="d-inline-block align-top"
-            />{' '}
-            
-            </Link>Welcome, {user.name} </Navbar.Brand>
+            />
+            </Link> Hey, {user.name} !! </Navbar.Brand>
         </Container>
         <Nav className="me-auto">
       <Nav.Link><Link to="/characterSearch">Search</Link></Nav.Link>

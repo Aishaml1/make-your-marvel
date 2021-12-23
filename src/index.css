@@ -1,4 +1,4 @@
-@import url(https://allfont.net/allfont.css?fonts=comic-book-commando-bold);
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
 
 body {
   margin: 0;
@@ -7,6 +7,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: 'Bangers', cursive;
 }
 
 code {
