@@ -1,0 +1,17 @@
+.charCard{
+    display:inline-grid;
+    justify-items: center;
+    width:20rem;
+    height:20rem;
+    margin:15px;
+    padding: 60px;
+}
+
+.charName{}
+
+.charImg{
+    
+}
+.charaddQuote{}
+.charbtn{}
+.charQuote{ }
