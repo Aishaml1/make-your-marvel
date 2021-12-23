@@ -1,9 +1,7 @@
-import { useState } from 'react'
 import SignupForm from '../../components/SignupForm/SignupForm'
 import styles from './Signup.module.css'
 import Animation from '../../components/misc/Animation'
 import ironMan from '../../assets/animation/IronMan.json'
-import AvatarSelection from './AvatarSelection'
 
 const Signup = (props) => {
 
