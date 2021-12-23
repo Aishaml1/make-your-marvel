@@ -5,13 +5,17 @@
     height:20rem;
     margin:15px;
     padding: 60px;
+    background-color: rgb(255, 0, 0);
+    box-shadow: 120px 80px 40px 20px rgb(95, 11, 11);
 }
 
-.charName{}
-
-.charImg{
-    
+.charName{
+    font-size: 25px;
 }
+
+.charImg{}
+
 .charaddQuote{}
+
 .charbtn{}
 .charQuote{ }
