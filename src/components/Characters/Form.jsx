@@ -20,6 +20,7 @@ function Form(props) {
     return (
     <>
       <form onSubmit={handleSubmit}>
+        <div className='search-container'>
         <label  className='searchlabel' htmlFor="charName">Search:</label>
         <input className='search'
           id="charName"
@@ -27,7 +28,7 @@ function Form(props) {
           value={charName}
           placeholder="marvel character"
           onChange={handleChange}
-        />
+        /></div>
         <input className='searchbtn' type="submit" value="Submit" />
       </form>
     </>

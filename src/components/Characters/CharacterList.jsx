@@ -17,9 +17,8 @@ function CharacterList() {
 
   return (
     <>
-      <h1 className='searchpage'> Search </h1>
+      <h1 className='searchpage'> Search Here to Assemble Your Team </h1>
       <Form handleSearch={handleSearch} character={chars} />
-      
     </>
   )
 }
