@@ -4,13 +4,13 @@ import Lottie from 'react-lottie-player'
 const Animation = (props) => {
 
     return (
-        <div>
+        <div className='lottie-image'>
             <Lottie
                 loop
                 animationData={props.animData}
                 play
                 speed={1}
-                style={{ width: '40%', height: '40%' }}
+                style={{ width: "700px", height: "700px" }}
             />
         </div>
     )
