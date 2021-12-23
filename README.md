@@ -3,8 +3,6 @@
 
 # Screenshots 
 
-# The Women in Tech Team (W.I.T.T) 
-
 
 # Technologies Used 
 Css
@@ -15,5 +13,3 @@ React Library
 JavaScript
 Axios
 Lottiefiles
-
-# Next Steps 
