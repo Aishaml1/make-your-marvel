@@ -3,6 +3,8 @@ import QuoteCard from "./QuoteCard";
 import AddQuote from "./AddQuote";
 import '../../styles/CharCard.css'
 
+
+
 const CharCard = ({ character, updateCharacter, handleDeleteCharacter }) => {
   const randomQuote =
     character.quotes[Math.floor(Math.random() * character.quotes.length)];
@@ -16,16 +18,20 @@ const CharCard = ({ character, updateCharacter, handleDeleteCharacter }) => {
         height="300px"
         width="300px"
       ></img>
-      <AddQuote className='charAddQuote' character={character} updateCharacter={updateCharacter} />
-      <button className='charbtn' onClick={() => handleDeleteCharacter(character._id)}>
+      
+      <AddQuote className='charAddQuote' character={character} updateCharacter={updateCharacter} /> 
+      <button className='chardeletebtn' onClick={() => handleDeleteCharacter(character._id)}>
         Delete Character
       </button>
       <div className='charQuote'>
-      <QuoteCard characterId={character._id} 
-      randomQuote={randomQuote} 
-      /></div>
-
+      <QuoteCard  
+      className='charQ'  
+      characterId={character._id} 
+      randomQuote={randomQuote}>
+      </QuoteCard>
     </div>
+    </div>
+    
   );
 };
 

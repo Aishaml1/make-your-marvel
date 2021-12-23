@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { addQuoteToProfile } from "../../services/characterService";
+import '../../styles/CharCard.css'
 
 const AddQuote = ({character, updateCharacter, handleDeleteCharacter}) => {
   const [content, setContent] = useState("")
@@ -20,7 +21,7 @@ const AddQuote = ({character, updateCharacter, handleDeleteCharacter}) => {
   };
 
   return (
-    <form onSubmit={(e) => addQuote(e, character._id)}>
+    <form  className='QuoteForm' onSubmit={(e) => addQuote(e, character._id)}>
       <input
         type="text"
         required
@@ -29,8 +30,8 @@ const AddQuote = ({character, updateCharacter, handleDeleteCharacter}) => {
         placeholder="Say something!"
         value={content}
         onChange={(e) => setContent(e.target.value)}
-      />
-      <button type="submit">Add Quote</button>
+      /> 
+      <button   className='addQuote'  type="submit">Add Quote</button>
     </form>  
   );
 };

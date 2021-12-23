@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import styles from './LoginForm.module.css'
 import * as authService from '../../services/authService'
+import mym from '../../assets/images/mym.png'
 
 const LoginForm = props => {
   const [formData, setFormData] = useState({
@@ -27,11 +28,13 @@ const LoginForm = props => {
   }
 
   return (
+
     <form
       autoComplete="off"
       onSubmit={handleSubmit}
       className={styles.container}
     >
+      <img  style={{color:'blue', height:'60vh', width:'190vh'}} className='login' src={mym} alt="make your marvel"></img>
       <div className={styles.inputContainer}>
         <label htmlFor="email" className={styles.label}>Email</label>
         <input

@@ -41,6 +41,7 @@ function EditQuote(props) {
 					id="name-input"
 					name="name"
 					value={formData}
+					maxLength={25}
 					required
 					onChange={(e) => handleChange(e)}
 				/>

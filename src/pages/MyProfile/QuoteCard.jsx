@@ -1,12 +1,14 @@
 import React from "react";
 import { Link } from 'react-router-dom'
+import '../../styles/CharCard.css'
+
 
 const QuoteCard = (props) => {
   console.log("quotecard data", props)
 
   return (
     <>
-    <p>{props.randomQuote?.content}</p>
+    <p className='Quote' style={{border:'solid'}}>"{props.randomQuote?.content}"</p>
     {props.randomQuote && 
     <Link 
       to="/edit"
@@ -15,7 +17,7 @@ const QuoteCard = (props) => {
         characterId: props.characterId,
         quoteId: props.randomQuote._id
       }}
-    ><button>Edit Quote</button></Link>}
+    ><button className='editQ'>Edit Quote</button></Link>}
     </>
   )
 }

@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { addCharacter } from '../../services/characterService'
 import { getAllComics } from '../../services/comicsService'
 import ComicCard from "../Comics/ComicCard"
+import '../../styles/detailsPage.css'
 
 const CharacterCard = () => {
   const location = useLocation()
@@ -37,18 +38,21 @@ const CharacterCard = () => {
 
   return (
     <div>
-      <h1>{hero.name}</h1>
-      <img src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`} alt="" width="300px" height="300px" />
-      <h4>Description: {hero.description}</h4>
-      <button type='submit' onClick={(e) => addToTeam(e, hero) }>Add to Team</button>
-      <button onClick={() => navigate(-1)}>Cancel</button>
+      <div className='detailCard'>
+      <h1 className='name' >{hero.name}</h1>
+      <img  className='detailImg' src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`} alt="" width="300px" height="300px" />
+      <h4 className='details' >Description: {hero.description}</h4>
+      <button className='add'  type='submit' onClick={(e) => addToTeam(e, hero) }>Add to Team</button>
+      <button className='cancel'  onClick={() => navigate(-1)}>Cancel</button>
+      </div>
+      <div>
       {comics?.map((comic)=>(
-        <ComicCard 
+        <ComicCard   
         comic={comic}
         key={comic.id}
         />
       ))}
-
+</div>
     </div>
   )
 }
