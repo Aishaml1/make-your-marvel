@@ -4,8 +4,6 @@ import styles from "./SignupForm.module.css";
 import * as authService from "../../services/authService";
 import AvatarSelection from "../../pages/Signup/AvatarSelection";
 import hulk from "../../assets/avatars/hulk.png";
-import Animation from "../../components/misc/Animation";
-import ironMan from "../../assets/animation/IronMan.json";
 
 const SignupForm = (props) => {
   const navigate = useNavigate();
@@ -48,15 +46,18 @@ const SignupForm = (props) => {
   };
 
   return (
+    <>
+    {popup && (
+      <AvatarSelection
+        formData={formData}
+        handleChange={handleChange}
+        handlePopup={handlePopup}
+      />
+    )}
+
     <div className="signup-page">
       
-      {popup && (
-        <AvatarSelection
-          formData={formData}
-          handleChange={handleChange}
-          handlePopup={handlePopup}
-        />
-      )}
+      
       
       <form
         autoComplete="off"
@@ -135,6 +136,7 @@ const SignupForm = (props) => {
         </div>
       </form>
     </div>
+    </>
   );
 };
 
