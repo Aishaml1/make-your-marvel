@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
 import {Navbar, Nav, Container} from 'react-bootstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
-import '../../styles/Nav.scss'
+import '../../styles/Nav.css'
+import mymNav from '../../assets/images/mymNav.png'
 
 
 const NavBar = ({ user, handleLogout }) => {
@@ -10,18 +11,18 @@ const NavBar = ({ user, handleLogout }) => {
 
       {user ?
       <>
-      <Navbar bg="dark" variant="dark">
+      <Navbar bg="dark" variant="dark" className='nav'>
         <Container>
-          <Navbar.Brand href="#home">
-            <img
+          <Navbar.Brand ><Link to="/">
+            <img 
               alt=""
-              src="{ }"
-              width="30"
-              height="30"
+              src={mymNav}
+              width="50px"
+              height="30vh"
               className="d-inline-block align-top"
             />{' '}
-          React Bootstrap
-          </Navbar.Brand>
+            
+            </Link>Welcome, {user.name} </Navbar.Brand>
         </Container>
         <Nav className="me-auto">
       <Nav.Link><Link to="/characterSearch">Search</Link></Nav.Link>
@@ -32,11 +33,10 @@ const NavBar = ({ user, handleLogout }) => {
       </Navbar>
     </>
         :
-        <Navbar>
+        <Navbar bg="dark" variant="dark">
           <Nav  className='loginSignup'>
           <Nav.Link><Link to="/login">Log in</Link></Nav.Link> 
             <li><Link to="/signup" className='navbar'>Sign Up</Link></li>
-          
           </Nav>
         </Navbar>
       }

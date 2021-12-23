@@ -1,28 +1,10 @@
+/* // Sass will let you nest your CSS selectors in a way that follows
+//the same visual hierarchy of your HTML */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Sass will let you nest your CSS selectors in a way that follows
-//the same visual hierarchy of your HTML
-
+.nav{
+    background-color: rgba(216, 12, 12, 0.363);
+}
+/* }
 // .menu {
 //     border-radius: 1px;
 //     height: fit-content;
@@ -115,4 +97,4 @@
 //             color: black;
 //         }
 //     }
-// }
+// } */
