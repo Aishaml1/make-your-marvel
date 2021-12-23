@@ -18,7 +18,8 @@ function Form(props) {
 
   
     return (
-    <><div className="block moving-glow">
+      <main className="main">
+      <>
       <form onSubmit={handleSubmit}>
         <div className='search-container'>
         <label  className='searchlabel' htmlFor="charName"></label>
@@ -31,8 +32,7 @@ function Form(props) {
         /></div>
         <input className='searchbtn' type="submit" value="Submit" />
       </form>
-      </div>
-    </>
+    </> </main>
   );
 }
 
